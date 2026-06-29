@@ -5,7 +5,7 @@ from langchain_core.messages import HumanMessage, ToolMessage, SystemMessage
 from langsmith import traceable
 
 MAX_ITERATIONS = 10
-Model = "gpt-5"
+MODEL = "gpt-5"
 
 @tool
 def get_product_price(product: str) -> float:
