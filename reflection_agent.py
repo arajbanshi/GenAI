@@ -12,7 +12,7 @@ from chains import generate_chain, reflect_chain
 
 class MessageGraph(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
-    
+
 REFLECT = "reflect"
 GENERATE = "generate"
 
@@ -37,7 +37,7 @@ def should_continue(state: MessageGraph):
     return REFLECT
 
 
-builder.add_conditional_edges(GENERATE, should_continue)
+builder.add_conditional_edges(GENERATE, should_continue, path_map={END: END, REFLECT: REFLECT})
 builder.add_edge(REFLECT, GENERATE)
 
 graph = builder.compile()
